@@ -42,17 +42,13 @@ public class TennisGame1 implements TennisGame {
                 switch(tempScore)
                 {
                     case 0:
-                        score += "Love";
-                        break;
+                        return "Love";
                     case 1:
-                        score += "Fifteen";
-                        break;
+                        return "Fifteen";
                     case 2:
-                        score += "Thirty";
-                        break;
+                        return "Thirty";
                     case 3:
-                        score += "Forty";
-                        break;
+                        return "Forty";
                 }
             }
         }
@@ -60,23 +56,17 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String equalsScoreString() {
-        String score;
         switch (scorePlayer1)
         {
             case 0:
-                    score = "Love-All";
-                break;
+                return "Love-All";
             case 1:
-                    score = "Fifteen-All";
-                break;
+                return "Fifteen-All";
             case 2:
-                    score = "Thirty-All";
-                break;
+                return "Thirty-All";
             default:
-                    score = "Deuce";
-                break;
+                return "Deuce";
 
         }
-        return score;
     }
 }
