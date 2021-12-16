@@ -15,18 +15,22 @@ public class TennisGame3 implements TennisGame {
         String s;
         if (scoreIsLowerThan4()) {
             return lowerThan4();
-        } else if (scorePlayer1 == scorePlayer2)
+        } else if (isEqualScorePlayers())
             return "Deuce";
         else{
             return greaterThan4();
         }
     }
 
+    private boolean isEqualScorePlayers() {
+        return scorePlayer1 == scorePlayer2;
+    }
+
     private String lowerThan4() {
         String s;
         String[] p = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
         s = p[scorePlayer1];
-        return (scorePlayer1 == scorePlayer2) ? s + "-All" : s + "-" + p[scorePlayer2];
+        return (isEqualScorePlayers()) ? s + "-All" : s + "-" + p[scorePlayer2];
     }
 
     public void wonPoint(String playerName) {

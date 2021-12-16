@@ -20,11 +20,11 @@ public class TennisGame1 implements TennisGame {
 
     public String getScore() {
         String score = "";
-        if (scorePlayer1 == scorePlayer2)
+        if (isEqual())
         {
             score = equalsScoreString();
         }
-        else if (scorePlayer1 >=4 || scorePlayer2 >=4)
+        else if (isGreaterThan4())
         {
             score = scoreGreaterThan4();
         }
@@ -33,6 +33,14 @@ public class TennisGame1 implements TennisGame {
             score = differentScore(scorePlayer1) + "-" + differentScore(scorePlayer2);
         }
         return score;
+    }
+
+    private boolean isGreaterThan4() {
+        return scorePlayer1 >=4 || scorePlayer2 >=4;
+    }
+
+    private boolean isEqual() {
+        return scorePlayer1 == scorePlayer2;
     }
 
     private String differentScore(int scorePlayer) {
@@ -68,8 +76,7 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String advantageScore(int minusResult){
-        return minusResult == 1 ? "Advantage player1" : "Advantage player2";
-
+        return minusResult ==1 ? "Advantage ".concat(player1Name) : "Advantage ".concat(player2Name);
     }
 
     private String winScore(int minusResult){

@@ -14,10 +14,10 @@ public class TennisGame2 implements TennisGame
 
     public String getScore(){
         String score = "";
-        if (p1Point == p2Point){
+        if (equalsScore()){
             score = equalScore(score);
         }
-        else if (p1Point >=4 || p2Point >=4)
+        else if (scorePlayers())
         {
             score = scoreGreaterThan4();
         }
@@ -27,6 +27,14 @@ public class TennisGame2 implements TennisGame
         }
 
         return score;
+    }
+
+    private boolean scorePlayers() {
+        return p1Point >=4 || p2Point >=4;
+    }
+
+    private boolean equalsScore() {
+        return p1Point == p2Point;
     }
 
     private String equalScore(String score) {
